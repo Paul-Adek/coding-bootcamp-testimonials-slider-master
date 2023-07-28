@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+br {
+  display: none;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(images/pattern-bg.svg);
+  background-position: 600px center;
+  background-repeat: no-repeat;
+}
+.container::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 160px;
+
+  background-image: url(images/pattern-curve.svg);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 600px;
+  width: 100%;
+  gap: 30px;
+  padding: 0 120px;
+}
+.images {
+  height: 75%;
+  width: 40%;
+  transform: translateX(-80px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.images .img {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  transition: all 1s;
+}
+.images .img:nth-child(1) {
+  transform: translateX(0%);
+}
+.images .img:nth-child(2) {
+  transform: translateX(100%);
+}
+.btns {
+  position: absolute;
+  content: "";
+  bottom: 140px;
+  left: 57%;
+  width: 87px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: hsl(0, 0%, 100%);
+  border-radius: 25px;
+  overflow: hidden;
+}
+.btns div {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.btns div:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.box {
+  width: 58%;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  margin-top: 50px;
+}
+.box .testimonal {
+  position: absolute;
+  content: "";
+  height: 260px;
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  opacity: 1;
+  transition: all 1s;
+}
+.box .testimonal::after {
+  position: absolute;
+  content: "";
+  top: -20px;
+  left: 90px;
+  height: 90px;
+  width: 120px;
+
+  background-image: url(images/pattern-quotes.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.box .testimonal.one {
+  transform: translateY(0%);
+}
+.box .testimonal.two {
+  transform: translateY(100%);
+}
+.box .testimonal p {
+  font-size: 32px;
+  color: hsl(240, 38%, 20%);
+  font-weight: 300;
+}
+.box .testimonal span {
+  margin: 20px 0;
+  font-size: 18px;
+  color: hsl(240, 38%, 20%);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: max-content;
+}
+.box .testimonal span p {
+  color: hsl(240, 18%, 77%);
+  font-weight: 300;
+  font-size: 14px;
+}
+.attribution {
+  text-align: center;
+  color: hsl(240, 38%, 20%);
+  font-size: 18px;
+  z-index: 1;
+}
+.attribution a {
+  text-decoration: none;
+  color: hsl(240, 18%, 77%);
+  font-weight: 500;
+}
+@media screen and (max-width: 420px) and (min-width: 320px) {
+  body {
+    overflow-y: hidden;
+  }
+  .container {
+    width: 100%;
+    background-position: center 30px;
+    background-repeat: no-repeat;
+    background-size: 110%;
+    position: relative;
+  }
+  br {
+    display: block;
+  }
+  .container::after {
+    width: 60%;
+    height: 160px;
+    bottom: -52px;
+  }
+  main {
+    flex-direction: column-reverse;
+    height: 600px;
+    width: 100%;
+    padding: 20px 0;
+  }
+  .images {
+    height: 50%;
+    width: 85%;
+    transform: translateY(45px);
+  }
+  .btns {
+    position: absolute;
+    content: "";
+    top: 345px;
+    left: 57%;
+    width: 87px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: hsl(0, 0%, 100%);
+    border-radius: 25px;
+    overflow: hidden;
+  }
+  .btns div {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .btns div:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .box {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0px;
+    transform: translateY(40px);
+  }
+  .box .testimonal {
+    position: absolute;
+    content: "";
+    height: 360px;
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    opacity: 1;
+    transition: all 1s;
+  }
+  .box .testimonal.two {
+    margin-top: 20px;
+  }
+  .box .testimonal::after {
+    position: absolute;
+    content: "";
+    top: -20px;
+    left: 90px;
+    height: 90px;
+    width: 120px;
+
+    background-image: url(images/pattern-quotes.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .box .testimonal.one {
+    transform: translateY(0%);
+  }
+  .box .testimonal.two {
+    transform: translateY(100%);
+  }
+  .box .testimonal p {
+    font-size: 17px;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .box .testimonal span {
+    text-align: center;
+    margin: 5px 0;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+    transform: translateX(130px);
+    font-size: 15px;
+  }
+  .box .testimonal.two span {
+    transform: translateX(80px);
+  }
+  .box .testimonal span:first-child {
+    color: hsl(240, 18%, 77%);
+    font-weight: 300;
+  }
+  .attribution {
+    text-align: center;
+    color: hsl(240, 38%, 20%);
+    font-size: 18px;
+    z-index: 1;
+  }
+  .attribution a {
+    text-decoration: none;
+    color: hsl(240, 18%, 77%);
+    font-weight: 500;
+  }
+}

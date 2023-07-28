@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+</head>
+
+<body>
+  <div class="container">
+    <main>
+      <div class="box">
+        <div class="testimonal one">
+          <p>“ I’ve been interested in coding for a while but never taken the jump, until now.
+            I couldn’t recommend this course enough. I’m now in the job of my dreams and so
+            excited about the future. ”</p>
+          <span>Tanya Sinclair <p>UX Engineer</p></span>
+        </div>
+        <div class="testimonal two">
+          <p>“ If you want to lay the best foundation possible I’d recommend taking this course.
+            The depth the instructors go into is incredible. I now feel so confident about
+            starting up as a professional developer. ”</p>
+          <span>John Tarkpor<p>Junior Front-end Developer</p></span>
+        </div>
+      </div>
+
+      <div class="images">
+        <img class="img" src="images/image-tanya.jpg" alt="image Tanya">
+        <img class="img" src="images/image-john.jpg" alt="image John">
+      </div>
+      <div class="btns">
+        <div id="prev" title="Previous"><img src="images/icon-prev.svg" alt="icon prev"></div>
+        <div id="next" title="Next"><img src="images/icon-next.svg" alt="icon next"></div>
+      </div>
+    </main>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Paul Adekomi</a>.
+    </div>
+  </div>
+
+  <script>
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+    const slides = document.querySelectorAll(".img")
+    const testimonals = document.querySelectorAll(".testimonal")
+    testimonals[0].style.transform = "translateY(0%)";
+    let currentSlide = 0;
+    let maxSlide = slides.length - 1;
+
+    nextBtn.addEventListener("click", () => {
+      if (testimonals[0].style.transform === "translateY(0%)") {
+        testimonals[0].style.transform = "translateY(-100%)";
+        testimonals[0].style.opacity = "0";
+        testimonals[1].style.transform = "translateY(-100%)";
+        testimonals[1].style.opacity = "1";
+      } else {
+        testimonals[0].style.transform = "translateY(0%)";
+        testimonals[0].style.opacity = "1";
+        testimonals[1].style.opacity = "0";
+        testimonals[1].style.transform = "translateY(100%)";
+      }
+      if (currentSlide === maxSlide) {
+        currentSlide = 0;
+      } else {
+        currentSlide++;
+      }
+      slides.forEach((slide, index) => {
+        slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`
+      });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (testimonals[0].style.transform === "translateY(0%)") {
+        testimonals[0].style.transform = "translateY(-100%)";
+        testimonals[0].style.opacity = "0";
+        testimonals[1].style.transform = "translateY(-100%)";
+        testimonals[1].style.opacity = "1";
+      } else {
+        testimonals[0].style.transform = "translateY(0%)";
+        testimonals[0].style.opacity = "1";
+        testimonals[1].style.opacity = "0";
+        testimonals[1].style.transform = "translateY(100%)";
+      }
+      if (currentSlide === 0) {
+        currentSlide = maxSlide;
+      } else {
+        currentSlide--;
+      }
+      slides.forEach((slide, index) => {
+        slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`
+      });
+    });
+
+
+
+
+  </script>
+</body>
+
+</html>
